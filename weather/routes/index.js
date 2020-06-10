@@ -5,12 +5,10 @@ require('dotenv').config();
 //const OWM_API_KEY = process.env.OWM_API_KEY || 'invalid_key';
 const OWM_API_KEY = '0da6f33afb5af9e893d59e9de0f55a6f' || 'invalid_key';
 const UNITS = process.env.UNITS || 'metric';
-
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', { weather: null, err: null });
 });
-
 router.post('/get_weather', async function (req,res) {
   let city = req.body.city;
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${UNITS}&appid=${OWM_API_KEY}`;
